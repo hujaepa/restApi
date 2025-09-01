@@ -1,7 +1,13 @@
+// app.js
 const express = require('express');
-const router = express.Router();
-const EmpController = require('./emp.controller');
+const cors = require('cors');
 
-router.get('/all', EmpController.getAll);
+const app = express();
+app.use(express.json());
+app.use(cors());
 
-module.exports = router;
+// routes
+const empRoutes = require('./modules/employee/emp.routes');
+app.use('/api/employee', empRoutes);
+
+module.exports = app;
