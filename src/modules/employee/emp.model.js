@@ -1,12 +1,12 @@
 const db = require('../../config/db');
 
 const EmpDb = {
-  getRecord: (data, callback) => {
-    const sql = 'SELECT * FROM Employee WHERE id = ?';
-    db.query(sql, [data.id], callback);
-  },
   getAll: (callback) => {
-    const sql = 'SELECT * FROM Employee';
+    const sql = "select * from employee emp" 
+    +" left join employee_address emp_addr"
+    +" on emp.id = emp_addr.employee_id"
+    +" left join address addr"
+    +" on addr.id=emp_addr.address_id;";
     db.query(sql, callback);
   }
 };

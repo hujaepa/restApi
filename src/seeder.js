@@ -18,8 +18,8 @@ async function seedEmployees(count = 100) {
 
     const sql = 'INSERT INTO employee SET ?';
     db.query(sql, employee, (err, result) => {
-      if (err) console.error(`❌ Error inserting employee ${employee.workNum}:`, err.message);
-      else console.log(`✅ Inserted: ${employee.workNum}`);
+      if (err) console.error(`Error inserting employee ${employee.workNum}:`, err.message);
+      else console.log(`Inserted: ${employee.workNum}`);
     });
   }
 }
